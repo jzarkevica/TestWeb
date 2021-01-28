@@ -16,35 +16,170 @@ and open the template in the editor.
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="newcss.css" >
+  <style>
+  html {
+  scroll-behavior: smooth;
+}
+
+
+<!-- #myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+} -->
+ 
+ul.pogas{
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+}
+
+ul.pogas li a {
+    display: block;
+    text-decoration: none;
+    height: 30px;
+    line-height: 30px;
+    font-size: 24px;
+    background: #fff;
+    width: 140px;
+    color: #262626;
+    margin: 4px 0;
+}
+
+ul li{
+    list-style: none;
+}
+
+    .image {
+        width: 350px;
+        height: 350px;
+        position: relative;
+        display: inline-block;
+        margin: 10px;
+    }
+    .image .img-top {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+    }
+    .image:hover .img-top {
+        display: inline;
+    }
+    
+  div.k {
+  width: 100px;
+  height: 50px;
+  background-color: greenyellow;
+  font-weight: bold;
+  position: absolute;
+  animation: mymove 7s infinite;
+}
+#div1 {animation-timing-function: linear;}
+#div2 {animation-timing-function: ease;}
+#div3 {animation-timing-function: ease-in;}
+
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 1800px;}
+}
+</style>
 </head>
 <body>
+    
+<div class="k" id="div1">S</div>
+<div class="k" id="div2">S</div>
+<div class="k" id="div3">C</div>
 
+    
+    
+    
+   <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    
 <!-- Navbar -->
-<nav class="navbar navbar-default">
+<!-- <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Me</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
+      </button> 
+      <!-- <a class="navbar-brand" href="#">Me</a> -->
+  <!--  </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">DIV</a></li>
-        <li><a href="#">SPAN</a></li>
-        <li><a href="#">WHERE</a></li>
+        <li><a href="#1">DIV</a></li>
+        <li><a href="#2">SPAN</a></li>
+        <li><a href="#3">MORE</a></li>
       </ul>
-    </div> 
-  </div>
-</nav>
+          
+      </div> -->
+      
+      
+    
+   
+    
+      <ul class="pogas">
+        <li><a href="#1">DIV</a></li>
+        <li><a href="#2">SPAN</a></li>
+        <li><a href="#3">MORE</a></li>
+      </ul> 
+          
+    
+     
+      
+      
+      
+ <!-- <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+          <div class="main" id="section1"> <li><a href="#section1">DIV</a></li>  </div>
+          <div class="main" id="section2"> <li><a href="#section2">SPAN</a></li> </div>
+          <div class="main" id="section3"> <li><a href="#section3">MORE</a></li> </div>
+      </ul>
+    </div>
+      
+  <!--  <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="#section1">DIV</a></li>
+        <li><a href="#section2">SPAN</a></li>
+        <li><a href="bg-3">MORE</a></li>
+      </ul>
+    </div> -->
+  
 
 <!-- First Container -->
+
+
+
+
 <div class="container-fluid bg-1 text-center">
-  <h3 class="margin">What is div?</h3>
-  <img src="div.png" class="img-responsive img-circle margin" style="display:inline" alt="div" width="350" height="350">
-  <h3>The HTML Content Division element (div) is the generic container for flow content. </h3>
+    <div id="1"><h3 class="margin">What is div?</h3></div>
+  <p>The HTML Content Division element (div) is the generic container for flow content. </p>
+  <div class="image">
+    	<img src="folder/divv.jpg" alt="div">
+        <img src="folder/divv1.jpg" class="img-top" alt="div">
+    </div>
   <ul>
       <li>The div tag defines a division or a section in an HTML document.</li>
       <li>The div tag is used as a container for HTML elements - which is then styled with CSS or manipulated with JavaScript.</li>
@@ -54,33 +189,56 @@ and open the template in the editor.
 
 <!-- Second Container -->
 <div class="container-fluid bg-2 text-center">
-  <h3 class="margin">What is span?</h3>
+    <div id="2"><h3 class="margin">What is span?</h3></div>
   <p>The HTML span element is a generic inline container for phrasing content, which does not inherently represent anything.</p>
+  <div class="image">
+    	<img src="folder/span.jpg" alt="div">
+        <img src="folder/span11.jpg" class="img-top" alt="div">
+    </div>
   <ul>
   <li>The span tag is an inline container used to mark up a part of a text, or a part of a document.</li>
   <li>The span tag is easily styled by CSS or manipulated with JavaScript using the class or id attribute.</li>
   <li>The span tag is much like the div element, but div is a block-level element and span is an inline element.</li>
-  </ul>
+ <!-- </ul>
   <a href="#" class="btn btn-default btn-lg">
     <span class="glyphicon glyphicon-search"></span> Search
-  </a>
+  </a> -->
 </div>
 
 <!-- Third Container (Grid) -->
 <div class="container-fluid bg-3 text-center">    
-  <h3 class="margin">Where To Find Me?</h3><br>
+    <div id="3"><h3 class="margin">Text font</h3><br></div>
   <div class="row">
-    <div class="col-sm-4">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+    <div class="col-sm-3">
+     <p>The em tag is used to define emphasized text. The content inside is typically displayed in <em>italic</em>.</p>
+     <div class="image">
+    	<img src="folder/2-1.jpg" alt="div">
+        <img src="folder/2.jpg" class="img-top" alt="div">
     </div>
-    <div class="col-sm-4"> 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <img src="birds2.jpg" class="img-responsive margin" style="width:100%" alt="Image">
     </div>
-    <div class="col-sm-4"> 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <img src="birds3.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+    <div class="col-sm-3"> 
+        <p>The del tag defines text that has been deleted from a document. Browsers will usually <del>strike a line</del> through deleted text.</p>
+      <p>The ins tag defines a text that has been inserted into a document. Browsers will usually <ins>underline</ins> inserted text.</p>
+          
+      <div class="image">
+    	<img src="folder/delins.jpg" alt="div">
+        <img src="folder/delins11.jpg" class="img-top" alt="div">
+    </div>
+    </div>
+    <div class="col-sm-3"> 
+      <p>The strong tag is used to define text with strong importance. The content inside is typically displayed in <strong>bold</strong>.</p>
+      <div class="image">
+    	<img src="folder/strong.jpg" alt="div">
+        <img src="folder/strong11.jpg" class="img-top" alt="div">
+    </div>
+    </div>
+      <div class="col-sm-3"> 
+          <p>The sup tag defines <sup>superscript</sup> text.</p> 
+          <p>The sub tag defines <sub>subscript</sub> text.</p>
+      <div class="image">
+    	<img src="folder/subsup2.jpg" alt="div">
+        <img src="folder/subsup21.jpg" class="img-top" alt="div">
+    </div>
     </div>
   </div>
 </div>
@@ -89,6 +247,26 @@ and open the template in the editor.
 <footer class="container-fluid bg-4 text-center">
   <p>Bootstrap Theme Made By <a href="https://www.w3schools.com">www.w3schools.com</a></p> 
 </footer>
+<!-- <script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
 
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script> -->
 </body>
 </html>
