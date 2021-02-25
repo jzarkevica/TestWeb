@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head> 
+        <style>
+         body  { background-color: #2f2f2f;
+         color: #fff;
+         text-align: center;
+         }
+         p{
+             text-align:center;
+             
+         }
+         form{
+             text-align:center;
+         }
+         table{
+             margin-left: auto;
+  margin-right: auto;
+         }
+        
+        </style> 
+        <title>laukums</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+    </head>
+    <body>
+   <!--     <p>ievadi skaitli n</p>
+        <form id="frm1" action="/action_page.php">
+  skaitlis: <input type="number" name="skaitlis"><br>
+  
+  <input type="button" onclick="myFunction()" value="skaitīt">
+</form>
+
+<script>
+function myFunction() {
+  document.getElementById("frm1").submit();
+function myFunction() {
+  var x = document.getElementById("skaitlis").value;
+  document.getElementById("demo").innerHTML = x;
+}
+}
+
+</script>   -->
+<p><a href="index.html">atgriezties</a></p> 
+   <p>  ievadi skaitli n: <input type="number" id="myNumber" value=" "> </p>
+   <p><button onclick="myFunction()">zīmēt</button></p>
+   <p id="demo"></p>
+
+<script>
+function myFunction() {
+  
+        var n = document.getElementById("myNumber").value;
+  document.getElementById("demo").innerHTML = n;
+
+  
+  var body = document.getElementsByTagName("body")[0];
+
+  
+  var tbl = document.createElement("table");
+  var tblBody = document.createElement("tbody");
+
+  
+  for (var j =0; j < n; j++) {
+    var row = document.createElement("tr");
+
+    for (var i = 1; i <= n; i++) {
+      
+      var cell = document.createElement("td");
+      var cellText = document.createTextNode( i+j*n);
+
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+    }
+
+    
+    tblBody.appendChild(row);
+  }
+  
+  
+  tbl.appendChild(tblBody);
+  
+  body.appendChild(tbl);
+  
+  tbl.setAttribute("border", "n");
+  
+}
+</script> 
+
+
+    </body>
+</html>
