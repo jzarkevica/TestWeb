@@ -106,6 +106,7 @@ ul li{
   from {left: 0px;}
   to {left: 1800px;}
 }
+
 </style>
 </head>
 <body>
@@ -119,8 +120,10 @@ ul li{
     
    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     
+  
+   
 <!-- Navbar -->
-<!-- <nav class="navbar navbar-default">
+<nav class="navbar navbar-default" id="navbar">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -129,29 +132,31 @@ ul li{
         <span class="icon-bar"></span>                        
       </button> 
       <!-- <a class="navbar-brand" href="#">Me</a> -->
-  <!--  </div>
+    </div>
       <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#1">DIV</a></li>
         <li><a href="#2">SPAN</a></li>
-        <li><a href="#3">MORE</a></li>
+        <li><a href="#3">P</a></li>
+        <li><a href="#4">MORE</a></li>
       </ul>
           
-      </div> -->
-      
-      
+      </div> 
+  </div>
+</nav>    
     
    
-    
+  <!--  
       <ul class="pogas">
         <li><a href="#1">DIV</a></li>
         <li><a href="#2">SPAN</a></li>
-        <li><a href="#3">MORE</a></li>
+        <li><a href="#3">P</a></li>
+        <li><a href="#4">MORE</a></li>
       </ul> 
-          
+         
     
      
-      
+    -->  
       
       
  <!-- <div class="collapse navbar-collapse" id="myNavbar">
@@ -210,46 +215,66 @@ ul li{
 
 <!-- Third Container (Grid) -->
 <div class="container-fluid bg-3 text-center">    
-    <div id="3"><h3 class="margin">Text font</h3><br></div>
-  <div class="row">
-    <div class="col-sm-3">
-     <p>The em tag is used to define emphasized text. The content inside is typically displayed in <em>italic</em>.</p>
-     <div class="image">
-    	<img src="folder/2-1.jpg" alt="div">
-        <img src="folder/2.jpg" class="img-top" alt="div">
+    <div id="3"><h3 class="margin">What is p?</h3></div>
+  <p>The HTML p element represents a paragraph. Paragraphs are usually represented in visual media as blocks of text separated from adjacent blocks by blank lines and/or first-line indentation, but HTML paragraphs can be any structural grouping of related content, such as images or form fields. </p>
+  <div class="image">
+    	<img src="folder/p2.jpg" alt="div">
+        <img src="folder/p21.jpg" class="img-top" alt="div">
     </div>
-    </div>
-    <div class="col-sm-3"> 
-        <p>The del tag defines text that has been deleted from a document. Browsers will usually <del>strike a line</del> through deleted text.</p>
-      <p>The ins tag defines a text that has been inserted into a document. Browsers will usually <ins>underline</ins> inserted text.</p>
-          
-      <div class="image">
-    	<img src="folder/delins.jpg" alt="div">
-        <img src="folder/delins11.jpg" class="img-top" alt="div">
-    </div>
-    </div>
-    <div class="col-sm-3"> 
-      <p>The strong tag is used to define text with strong importance. The content inside is typically displayed in <strong>bold</strong>.</p>
-      <div class="image">
-         
-    	<img src="folder/strong.jpg" alt="div">
-        <img src="folder/strong11.jpg" class="img-top" alt="div"> 
-    </div>
-    </div>
-      <div class="col-sm-3"> 
-          <p>The sup tag defines <sup>superscript</sup> text.</p> 
-          <p>The sub tag defines <sub>subscript</sub> text.</p>
-      <div class="image">
-    	<img src="folder/subsup2.jpg" alt="div">
-        <img src="folder/subsup21.jpg" class="img-top" alt="div">
-    </div>
-    </div>
-  </div>
+ 
 </div>
 
+<div class="container-fluid bg-4 text-center">
+    <div id="4"><h3 class="margin">CSS tricks</h3><br></div>
+  <div class="row">
+    <div class="col-sm-4">
+     <p>CSS allows animation of HTML elements without using JavaScript or Flash!</p>
+     <p>The animation-timing-function property specifies the speed curve of the animation.</p>
+     <div class="image">
+    	<img src="folder/animation.jpg" alt="div">
+     <!--   <img src="folder/2.jpg" class="img-top" alt="div"> -->
+    </div>
+    </div>
+    <div class="col-sm-4"> 
+        <p>CSS allows creating image overlay hover effects.</p>
+          
+      <div class="image">
+    	<img src="folder/hover.jpg" alt="div">
+        <img src="folder/cat.jpg" class="img-top" alt="div">
+    </div>
+    </div>
+    <div class="col-sm-4"> 
+      <p>CSS gradients let you display smooth transitions between two or more specified colors.</p>
+      <div class="image">
+         
+    	<img src="folder/gradient.jpg" alt="div">
+    <!--    <img src="folder/strong11.jpg" class="img-top" alt="div"> -->
+    </div>
+    </div>
+      
+  </div>
+    
+</div> 
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+
 <!-- Footer -->
-<footer class="container-fluid bg-4 text-center">
-  <p>Bootstrap Theme Made By <a href="https://www.w3schools.com">www.w3schools.com</a></p> 
+<footer class="container-fluid bg-5 text-center">
+  <p><a href="laukums.html">laukums</a></p> 
 </footer>
 <!-- <script>
 //Get the button
