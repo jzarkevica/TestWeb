@@ -47,6 +47,7 @@ function myFunction() {
 }
 
 </script>   -->
+  
 <p><a href="index.html">atgriezties</a></p> 
    <p>  ievadi skaitli n: <input type="number" id="myNumber" value=" "> </p>
    <p><button onclick="myFunction()">zīmēt</button></p>
@@ -54,7 +55,7 @@ function myFunction() {
 
 <script>
 function myFunction() {
-  
+   
         var n = document.getElementById("myNumber").value;
   document.getElementById("demo").innerHTML = n;
 
@@ -70,7 +71,8 @@ function myFunction() {
       
       var cell = document.createElement("td");
       var cellText = document.createTextNode( i+j*n);
-
+   cell.style.width = '50px';
+   cell.style.height = '50px';
       cell.appendChild(cellText);
       row.appendChild(cell);
     }
@@ -86,6 +88,7 @@ function myFunction() {
   tbl.setAttribute("border", "n");
   
 }
+
 </script> 
 
 
