@@ -57,8 +57,8 @@ function myFunction() {
 
 <script>
 
-  let lielais=[M,N,K,B,D,F,R,T,P,U,L];
-  let mazais=[m,n,k,b,d,f,r,t,p,u,l];
+  let lielais=["M","N","K","B","D","F","R","T","P","U","L"];
+  let mazais=["m","n","k","b","d","f","r","t","p","u","l"];
   let saraksts=[];
   function sajukums(){
              for(let i=0;i<lielais.length-2;i++){
@@ -78,6 +78,7 @@ function zimet() {
  // if(document.getElementByTagName("body").hasChildNodes()){
   //    document.getElementByTagName("body").removeChild(document.getElementByTagName("body").childNodes[0]);
    //             }
+//   node.removeChild(child);
   var n = document.getElementById("myNumber").value;
   document.getElementById("demo").innerHTML = n;
  // saraksts(n);
@@ -92,7 +93,7 @@ function zimet() {
     for (var i = 1; i <= n; i++) {
             var cell = document.createElement("td");
     //  if(n%2===0){
-//     var cellText = document.createTextNode(parseInt( 10*Math.random(n*n/2)+1));
+// var cellText = document.createTextNode(parseInt( 10*Math.random(n*n/2)+1));
      var cellText=sajukums();
      // var cellText1= document.createTextNode(parseInt( 10*Math.random(n*n/2)+1));
     //  var k;
