@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head> 
         <style>
-         body  { background-color: #2f2f2f;
+         body  { background-color: #b3b3b3;
          color: #fff;
          text-align: center;
          }
@@ -20,9 +20,10 @@ and open the template in the editor.
          }
          table{
              margin-left: auto;
-  margin-right: auto;
+             margin-right: auto;
+             
          }
-        
+         
         </style> 
         <title>laukums</title>
         <meta charset="UTF-8">
@@ -50,44 +51,68 @@ function myFunction() {
   
 <p><a href="index.html">atgriezties</a></p> 
    <p>  ievadi skaitli n: <input type="number" id="myNumber" value=" "> </p>
-   <p><button onclick="myFunction()">zīmēt</button></p>
-   <p id="demo"></p>
+   <p><button onclick="zimet()">zīmēt</button></p>
+   <p id="demo"></p> 
+  
 
 <script>
-function myFunction() {
-   
-        var n = document.getElementById("myNumber").value;
-  document.getElementById("demo").innerHTML = n;
 
-    var body = document.getElementsByTagName("body")[0];
-  
+  let lielais=[M,N,K,B,D,F,R,T,P,U,L];
+  let mazais=[m,n,k,b,d,f,r,t,p,u,l];
+  let saraksts=[];
+  function sajukums(){
+             for(let i=0;i<lielais.length-2;i++){
+                saraksts.push(lielais[i]);
+                saraksts.push(mazais[i]);
+             }
+             for(let i=0;i<saraksts.length;i++){
+                var rand=Math.floor(Math.random()*saraksts.length);
+                var tmp=saraksts[rand];
+                saraksts[rand]=saraksts[i];
+                saraksts[i]=tmp;
+            }
+            document.write(saraksts);
+        }
+
+function zimet() {
+ // if(document.getElementByTagName("body").hasChildNodes()){
+  //    document.getElementByTagName("body").removeChild(document.getElementByTagName("body").childNodes[0]);
+   //             }
+  var n = document.getElementById("myNumber").value;
+  document.getElementById("demo").innerHTML = n;
+ // saraksts(n);
+  var body = document.getElementsByTagName("body")[0];
+ // if(document.getElementById("body")!==null){ 
+ // document.getElementById("body").deleteRow(0);}
   var tbl = document.createElement("table");
   var tblBody = document.createElement("tbody");
 
    for (var j =0; j < n; j++) {
-    var row = document.createElement("tr");
-
+   var row = document.createElement("tr");
     for (var i = 1; i <= n; i++) {
-      
-      var cell = document.createElement("td");
-      var cellText = document.createTextNode( i+j*n);
-   cell.style.width = '50px';
-   cell.style.height = '50px';
+            var cell = document.createElement("td");
+    //  if(n%2===0){
+//     var cellText = document.createTextNode(parseInt( 10*Math.random(n*n/2)+1));
+     var cellText=sajukums();
+     // var cellText1= document.createTextNode(parseInt( 10*Math.random(n*n/2)+1));
+    //  var k;
+    //    if (cellText===k){
+   //       var cellText1= document.createTextNode(k);
+   //       var cellText = document.createTextNode(parseInt( 10*Math.random(n*n/2-1)+1));
+   //     }
+  //    
+  //   }else var cellText = document.createTextNode(parseInt( 10*Math.random((n*n-1)/2)+1));
+      cell.style.width='50px';
+      cell.style.height='50px';
       cell.appendChild(cellText);
       row.appendChild(cell);
     }
-
-    
     tblBody.appendChild(row);
-  }
-    
+  } 
   tbl.appendChild(tblBody);
-  
   body.appendChild(tbl);
-  
   tbl.setAttribute("border", "n");
-  
-}
+  }
 
 </script> 
 
