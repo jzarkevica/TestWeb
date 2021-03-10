@@ -25,8 +25,8 @@ and open the template in the editor.
          }
          .cell{
         margin: 10px;
-        height: 70px;
-        width: 70px;
+        height: 60px;
+        width: 60px;
         
          }
          
@@ -60,7 +60,7 @@ function myFunction() {
    <p><button onclick="zimet()">zīmēt</button></p>
    <p id="demo"></p>
    <div class="grupa" id="poga"></div> 
-  
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
 <script>
 
@@ -105,8 +105,8 @@ function myFunction() {
                 saraksts[rand]=saraksts[i];
                 saraksts[i]=tmp;
             }
-            //document.write(saraksts);
-            console.log(saraksts);
+            document.write(saraksts);
+            //console.log(saraksts);
         }
 
 function zimet() {
@@ -116,25 +116,60 @@ function zimet() {
   var n = document.getElementById("myNumber").value;
   document.getElementById("demo").innerHTML = n;
  // saraksts(n);
- var image = document.createElement("img");         
- sajukums(n);
+ var body = document.getElementsByTagName("body")[0];
+ // if(document.getElementById("body")!==null){ 
+ // document.getElementById("body").deleteRow(0);}
+  var tbl = document.createElement("table");
+  var tblBody = document.createElement("tbody");
 
-    for(var j=0; j<n; j++){
-      let imgs = document.createElement("img");
-    for(var i=0; i<n; i++){                            
-    let card= document.createElement("cell");
-    card.setAttribute("border","n");
-    console.log(card.attributes);
-    card.setAttribute("style","vertical-align:middle");
-    if(saraksts[j*n+i].charAt(0)==='#'){
-    card.style.background = saraksts[j*n+i];
-    }else card.innerHTML = saraksts[j*n+i];
-    imgs.appendChild(card);
-                    }
-                    image.appendChild(imgs);
-                }
-                document.getElementById("poga").appendChild(image);
-            }
+   for (var j =0; j < n; j++) {
+   var row = document.createElement("tr");
+    for (var i = 1; i <= n; i++) {
+            var cell = document.createElement("td");
+    //  if(n%2===0){
+// var cellText = document.createTextNode(parseInt( 10*Math.random(n*n/2)+1));
+     var cellText=sajukums();
+     // var cellText1= document.createTextNode(parseInt( 10*Math.random(n*n/2)+1));
+    //  var k;
+    //    if (cellText===k){
+   //       var cellText1= document.createTextNode(k);
+   //       var cellText = document.createTextNode(parseInt( 10*Math.random(n*n/2-1)+1));
+   //     }
+  //    
+  //   }else var cellText = document.createTextNode(parseInt( 10*Math.random((n*n-1)/2)+1));
+      cell.style.width='50px';
+      cell.style.height='50px';
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+    }
+    tblBody.appendChild(row);
+  } 
+  tbl.appendChild(tblBody);
+  body.appendChild(tbl);
+  tbl.setAttribute("border", "n");
+  }
+
+ 
+// var image = document.createElement("tr");         
+// sajukums(n);
+
+//    for(var j=0; j<n; j++){
+  //    let row = document.createElement("tr");
+    //for(var i=0; i<n; i++){                            
+    //let card= document.createElement("cell");
+    //card.setAttribute("border","n");
+    //console.log(card.attributes);
+    //card.setAttribute("style","vertical-align:middle");
+  ////  if(saraksts[j*n+i].charAt(0)==='#'){
+  ////  card.style.background = saraksts[j*n+i];
+  ////  }else card.innerHTML = saraksts[j*n+i];
+   
+   //             row.appendChild(card);
+     //               }
+       //             image.appendChild(row);
+         //       }
+           //     document.getElementById("poga").appendChild(image);
+            
           
 </script> 
 
