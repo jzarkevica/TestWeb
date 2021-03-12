@@ -21,9 +21,7 @@ body {
   display: flex;
   background: palegoldenrod; 
  }
-form{
-    text-align:center;
-}
+
 
 .memory-game {
   width: 640px;
