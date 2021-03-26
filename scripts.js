@@ -27,8 +27,6 @@ function flipCard() {
   checkForMatch();
   }
 
-
-
 function shuffle() {
     cards.forEach(card => {
     let randomPos = Math.floor(Math.random() * 12);
