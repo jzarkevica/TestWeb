@@ -14,3 +14,9 @@ and open the template in the editor.
     height: 300px;
     width: 400px;
 }
+body {
+        
+ height: 100vh;
+  display: flex;
+  background: palegoldenrod; 
+ }

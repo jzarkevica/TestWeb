@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+//document.addEventListener('DOMContentLoaded', () => {
     
     
     const cardArray= [
@@ -23,21 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
       { name: 'guitar',
           img: 'attels/guitar.jpg'  },
       { name: 'house',
-          img: 'attels/house.jpg'  },
-      { name: 'apple',
-          img: 'attels/apple.jpg'  },
-      { name: 'apple',
-          img: 'attels/apple.jpg'  },
-      { name: 'apple',
-          img: 'attels/apple.jpg'  },
-      { name: 'apple',
-          img: 'attels/apple.jpg'  },
-      { name: 'apple',
-          img: 'attels/apple.jpg'  },
-      { name: 'apple',
-          img: 'attels/apple.jpg'  },
-      { name: 'apple',
-          img: 'attels/apple.jpg'  }
+          img: 'attels/house.jpg'  }
+      
     ];
       
     
@@ -56,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var card = document.createElement('img');
     card.setAttribute('src', 'attels/background.jpg');
     card.setAttribute('data-id',i);
-    // card.addEventListener('click', flipcard)
+    card.addEventListener('click', flipcard)
     grid.appendChild(card);
         }
     }
@@ -66,14 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const optionOneId = cardsChosenId[0];
         const optionTwoId = cardsChosenId[1];
         if (cardsChosen[0] === cardsChosen[1]){
-            alert('You found a match');
+            //alert('You found a match');
             cards[optionOneId].setAttribute('src', 'attels/white.jpg');
             cards[optionTwoId].setAttribute('src', 'attels/white.jpg');
             cardsWon.push(cardsChosen);
         } else {
             cards[optionOneId].setAttribute('src', 'attels/background.jpg');
             cards[optionTwoId].setAttribute('src','attels/background.jpg');
-            alert('Sorry, try again');
+            //alert('Sorry, try again');
         }
         cardsChosen=[];
         cardsChosenId=[];
@@ -102,7 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     }
     
+    createBoard();
     
     
     
-    });
+  //  });
