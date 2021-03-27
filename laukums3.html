@@ -11,16 +11,25 @@ and open the template in the editor.
      
         <title>Memory Game</title>
         <link rel="stylesheet" href="laukums3style.css">
-        <script src="laukums3script.js" charset="utf-8"></script>
+        <!--<script src="laukums3script.js" charset="utf-8"></script> -->
     </head>
     <body>
         
-    <h3>Score:<span id="result"</span></h3>  
+    <!--<h3>Score:<span id="result"</span></h3>  -->
+    
+        <form>
+            <label for="n"> izmērs: </label>
+            <input type="number" id="n" name="n" value="5"><br>
+        </form>
+        <button onclick="draw()">zīmēt!</button>
+        <div class="group" id="butt"></div>
+    
+    
     
     <div class="grid">
         
     </div>    
-        
+      <script src="laukums3script.js"></script>  
         
     </body>
 </html>
