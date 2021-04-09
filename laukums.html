@@ -24,11 +24,14 @@ and open the template in the editor.
              
          }
          .cell{
-        margin: 10px;
+       margin: 10px;
         height: 60px;
         width: 60px;
         
-         }
+        }
+        .mattels{
+         position: relative;
+        }
          
         </style> 
         <title>laukums</title>
@@ -60,71 +63,131 @@ function myFunction() {
    <p><button onclick="zimet()">zīmēt</button></p>
    <p id="demo"></p>
    <div class="grupa" id="poga"></div> 
+   
+   
 
 
 <script>
 
-  var attels=['attels/apple.jpg', 'attels/book.jpg', 'attels/apple.jpg','attels/carrot.jpg', 'attels/dog.jpg','attels/eye.jpg','attels/frog.jpg','attels/guitar.jpg','attels/house.jpg',
-      'attels/ice.jpg','attels/jar.jpg','attels/key.jpg','attels/lemon.jpg','attels/mushroom.jpg','attels/nose.jpg','attels/octopus.jpg','attels/pumpkin.jpg','attels/queue.jpg',
-      'attels/rainbow.jpg','attels/sun.jpg','attels/tram.jpg','attels/umbrella.jpg','attels/vase.jpg','attels/watermelon.jpg','attels/x.jpg','attels/yoyo.jpg','attels/zebra.jpg'];
+  
+    var attels=['attels1/apple.jpg', 'attels1/book1.jpg', 'attels1/carrot.jpg', 'attels1/dog.jpg','attels1/eye.jpg','attels1/frog.jpg','attels1/guitar.jpg','attels1/house.jpg',
+      'attels1/ice.jpg','attels1/jar.jpg','attels1/key.jpg','attels1/lemon.jpg','attels1/mushroom.jpg','attels1/nose.jpg','attels1/octopus.jpg','attels1/pumpkin.jpg','attels1/queue.jpg',
+      'attels1/rainbow1.jpg','attels1/sun.jpg','attels1/tram.jpg','attels1/umbrella.jpg','attels1/vase.jpg','attels1/watermelon.jpg','attels1/x.jpg','attels1/yoyo.jpg','attels1/zebra.jpg'];
   var burts=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
- 
+  
+  var klik=false;
   var saraksts=[];
-  function sajukums(){
-      saraksts=[];
-             for(let i=0;i<attels.length-2;i++){
-                saraksts.push(attels[i]);
-                saraksts.push(burts[i]);
-             }
-             for(let i=0;i<saraksts.length;i++){
-                var rand=Math.floor(Math.random()*saraksts.length);
-                var tmp=saraksts[rand];
-                saraksts[rand]=saraksts[i];
-                saraksts[i]=tmp;
-            }
-            document.write(saraksts);
-            //console.log(saraksts);
+  var masivs=[];
+  var tt;
+  var m=0;
+  var k;
+  function sajukums(n){
+      // vispirms sajauc dotos masīvus 
+for(let i=0;i<attels.length;i++){
+var rand=Math.floor(Math.random()*attels.length); 
+var tmp=attels[rand]; 
+attels[rand]=attels[i]; 
+attels[i]=tmp; 
+tmp=burts[rand]; 
+burts[rand]=burts[i]; 
+burts[i]=tmp; } 
+// paņem nepieciešamo skaitu elementu 
+for(let i=0;i<n*n/2;i++){ 
+saraksts.push(attels[i]); 
+//saraksts.push("http://r1g.edu.lv/v/index/img/logo_sm3.png");
+//saraksts.push("https://upload.wikimedia.org/wikipedia/commons/1/10/Red_Color.jpg");
+saraksts.push(burts[i]); } 
+// sajauc sarakstu - tagad ir garantēts vienāds skaits burtu un bilžu 
+for(let i=0;i<saraksts.length;i++){ 
+var rand=Math.floor(Math.random()*saraksts.length); 
+var tmp=saraksts[rand]; 
+saraksts[rand]=saraksts[i]; 
+saraksts[i]=tmp; } 
+//document.write(saraksts); 
+//console.log(saraksts);
+
         }
 
-function zimet() {
-  if(document.getElementById("poga").hasChildNodes()){
-                    document.getElementById("poga").removeChild(document.getElementById("poga").childNodes[0]);
-                }
-  var n = document.getElementById("myNumber").value;
-  document.getElementById("demo").innerHTML = n;
- // saraksts(n);
- var body = document.getElementsByTagName("body")[0];
- // if(document.getElementById("body")!==null){ 
- // document.getElementById("body").deleteRow(0);}
-  var tbl = document.createElement("table");
-  var tblBody = document.createElement("tbody");
+function zimet() { 
+    masivs=[];
+if(document.getElementById("poga").hasChildNodes()){ document.getElementById("poga").removeChild(document.getElementById("poga").childNodes[0]); } var n = document.getElementById("myNumber").value; 
+document.getElementById("demo").innerHTML = n; 
+if(document.getElementById("tabula")!==null){ document.body.removeChild(document.getElementById("tabula")); } 
+var tbl = document.createElement("table"); 
+tbl.setAttribute("id","tabula"); 
+sajukums(n); 
+for (var j =0; j < n; j++) { 
+var row = document.createElement("tr"); 
+for (var i = 0; i < n; i++) { 
+var cell = document.createElement("td"); 
+cell.style.background = "";
+let bilde = document.createElement("img");
+  bilde.setAttribute("src", "attels/background.jpg");
+  bilde.setAttribute("class", "bilde");
+        
+if(saraksts[j*n+i].length===1){ 
+cell.innerHTML =saraksts[j*n+i]; 
+cell.style.width='100px'; 
+cell.style.height='100px'; }
+else{ 
+cell.setAttribute("style","background-image: url('"+saraksts[j*n+i]+"' );width:100px;height:100px;"); }
+cell.onclick = function(){
+                    if(masivs.indexOf(cell.id)==-1){
+                        maina(cell.id);
+                    } }
+row.appendChild(cell); } 
+tbl.appendChild(row); } 
+document.body.appendChild(tbl); }	
 
-   for (var j =0; j < n; j++) {
-   var row = document.createElement("tr");
-    for (var i = 1; i <= n; i++) {
-            var cell = document.createElement("td");
-    //  if(n%2===0){
-// var cellText = document.createTextNode(parseInt( 10*Math.random(n*n/2)+1));
-     var Text=sajukums();
-     // var cellText1= document.createTextNode(parseInt( 10*Math.random(n*n/2)+1));
-    //  var k;
-    //    if (cellText===k){
-   //       var cellText1= document.createTextNode(k);
-   //       var cellText = document.createTextNode(parseInt( 10*Math.random(n*n/2-1)+1));
-   //     }
-  //    
-  //   }else var cellText = document.createTextNode(parseInt( 10*Math.random((n*n-1)/2)+1));
-      cell.style.width='50px';
-      cell.style.height='50px';
-      cell.appendChild(Text);
-      row.appendChild(cell);
+
+function mainaBildi(k){
+    if (klik){
+        document.getElementById(k).style.background = "";
+        document.getElementById(k).innerHTML = "";
+        let bilde = document.createElement("img");
+        bilde.setAttribute("src", "attels/background.jpg");
+        bilde.setAttribute("class", "bilde");
+        document.getElementById(k).appendChild(bilde);
     }
-    tblBody.appendChild(row);
-  } 
-  tbl.appendChild(tblBody);
-  body.appendChild(tbl);
-  tbl.setAttribute("border", "n");
-  }
+       else {
+        document.getElementById(k).innerHTML = "";
+        if(sajukums[k].charAt(0)==='#'){
+            document.getElementById(k).style.background = sajukums[k];
+        }else document.getElementById(k).innerHTML = sajukums[k];
+    }                
+
+}
+
+function maina(k){
+    if(m===1)return;
+    if(!klik){
+        tt = k;
+        mainaBildi(k);
+        klik = true;
+    }
+    else{
+        if(k===tt){
+            mainaBildi(k);
+            klik = false;
+        }
+        else{
+            klik = false;
+            mainaBildi(k);
+            let poga1 = sajukums[tt];
+            let poga2 = sajukums[k];
+            if(burts.indexOf(poga1)==attels.indexOf(poga2)&&attels.indexOf(poga1)==burts.indexOf(poga2)){
+                masivs.push(tt);
+                masivs.push(k);
+                tt = -1;
+            }else{
+                klik = true;
+                m = 1;
+               
+            }
+        }
+    }
+}
+
 
  
 // var image = document.createElement("tr");         
