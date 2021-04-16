@@ -110,7 +110,8 @@ saraksts[i]=tmp; }
 
 function zimet() { 
     masivs=[];
-if(document.getElementById("poga").hasChildNodes()){ document.getElementById("poga").removeChild(document.getElementById("poga").childNodes[0]); } var n = document.getElementById("myNumber").value; 
+if(document.getElementById("poga").hasChildNodes()){ document.getElementById("poga").removeChild(document.getElementById("poga").childNodes[0]); } 
+var n = document.getElementById("myNumber").value; 
 document.getElementById("demo").innerHTML = n; 
 if(document.getElementById("tabula")!==null){ document.body.removeChild(document.getElementById("tabula")); } 
 var tbl = document.createElement("table"); 
@@ -132,61 +133,42 @@ cell.style.height='100px'; }
 else{ 
 cell.setAttribute("style","background-image: url('"+saraksts[j*n+i]+"' );width:100px;height:100px;"); }
 cell.onclick = function(){
-                    if(masivs.indexOf(cell.id)==-1){
-                        maina(cell.id);
-                    } }
+                    if(masivs.indexOf(".")==0){
+                        mainaBildi(cell.id);
+                    } 
+                }
 row.appendChild(cell); } 
 tbl.appendChild(row); } 
 document.body.appendChild(tbl); }	
 
 
 function mainaBildi(k){
-    if (klik){
-        document.getElementById(k).style.background = "";
-        document.getElementById(k).innerHTML = "";
-        let bilde = document.createElement("img");
-        bilde.setAttribute("src", "attels/background.jpg");
-        bilde.setAttribute("class", "bilde");
-        document.getElementById(k).appendChild(bilde);
-    }
-       else {
-        document.getElementById(k).innerHTML = "";
-        if(sajukums[k].charAt(0)==='#'){
-            document.getElementById(k).style.background = sajukums[k];
-        }else document.getElementById(k).innerHTML = sajukums[k];
-    }                
+    
+    
+    
+    
+    
+    
+    
+    
+  //  if (klik){
+  //      document.getElementById(k).style.background = "";
+  //      document.getElementById(k).innerHTML = "";
+   //     let bilde = document.createElement("img");
+   //     bilde.setAttribute("src", "attels/background.jpg");
+   //   bilde.setAttribute("class", "bilde");
+  //      document.getElementById(k).appendChild(bilde);
+  // }
+  //     else {
+  //     document.getElementById(k).innerHTML = "";
+  //     if(sajukums[k].charAt(0)==='#'){
+  //         document.getElementById(k).style.background = sajukums[k];
+  //      }else document.getElementById(k).innerHTML = sajukums[k];
+ // }                
 
 }
 
-function maina(k){
-    if(m===1)return;
-    if(!klik){
-        tt = k;
-        mainaBildi(k);
-        klik = true;
-    }
-    else{
-        if(k===tt){
-            mainaBildi(k);
-            klik = false;
-        }
-        else{
-            klik = false;
-            mainaBildi(k);
-            let poga1 = sajukums[tt];
-            let poga2 = sajukums[k];
-            if(burts.indexOf(poga1)==attels.indexOf(poga2)&&attels.indexOf(poga1)==burts.indexOf(poga2)){
-                masivs.push(tt);
-                masivs.push(k);
-                tt = -1;
-            }else{
-                klik = true;
-                m = 1;
-               
-            }
-        }
-    }
-}
+
 
 
  
