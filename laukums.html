@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head> 
         <style>
-         body  { background-color: #b3b3b3;
+         body  { background-color: palegoldenrod;
          color: #fff;
          text-align: center;
          }
@@ -73,7 +73,7 @@ function myFunction() {
     var attels=['attels1/apple.jpg', 'attels1/book1.jpg', 'attels1/carrot.jpg', 'attels1/dog.jpg','attels1/eye.jpg','attels1/frog.jpg','attels1/guitar.jpg','attels1/house.jpg',
       'attels1/ice.jpg','attels1/jar.jpg','attels1/key.jpg','attels1/lemon.jpg','attels1/mushroom.jpg','attels1/nose.jpg','attels1/octopus.jpg','attels1/pumpkin.jpg','attels1/queue.jpg',
       'attels1/rainbow1.jpg','attels1/sun.jpg','attels1/tram.jpg','attels1/umbrella.jpg','attels1/vase.jpg','attels1/watermelon.jpg','attels1/x.jpg','attels1/yoyo.jpg','attels1/zebra.jpg'];
-  var burts=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  var burts=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
   
   var klik=false;
   var saraksts=[];
@@ -81,6 +81,7 @@ function myFunction() {
   var tt;
   var m=0;
   var k;
+  
   function sajukums(n){
       // vispirms sajauc dotos masīvus 
 for(let i=0;i<attels.length;i++){
@@ -114,35 +115,46 @@ if(document.getElementById("poga").hasChildNodes()){ document.getElementById("po
 var n = document.getElementById("myNumber").value; 
 document.getElementById("demo").innerHTML = n; 
 if(document.getElementById("tabula")!==null){ document.body.removeChild(document.getElementById("tabula")); } 
-var tbl = document.createElement("table"); 
+let tbl = document.createElement("table"); 
 tbl.setAttribute("id","tabula"); 
 sajukums(n); 
-for (var j =0; j < n; j++) { 
-var row = document.createElement("tr"); 
-for (var i = 0; i < n; i++) { 
-var cell = document.createElement("td"); 
+for (let j =0; j < n; j++) { 
+let row = document.createElement("tr"); 
+for (let i = 0; i < n; i++) { 
+let cell = document.createElement("td"); 
 cell.style.background = "";
 let bilde = document.createElement("img");
   bilde.setAttribute("src", "attels/background.jpg");
   bilde.setAttribute("class", "bilde");
-        
+  cell.setAttribute("id", saraksts[j*n+i]);      
 if(saraksts[j*n+i].length===1){ 
-cell.innerHTML =saraksts[j*n+i]; 
+//cell.innerHTML =saraksts[j*n+i]; 
+cell.style.display='none';
+cell.style="background-image:url('attels/background.jpg')";
 cell.style.width='100px'; 
 cell.style.height='100px'; }
 else{ 
-cell.setAttribute("style","background-image: url('"+saraksts[j*n+i]+"' );width:100px;height:100px;"); }
+cell.setAttribute("style","background-image: url('attels/background.jpg' );width:100px;height:100px;"); }
 cell.onclick = function(){
-                    if(masivs.indexOf(".")==0){
-                        mainaBildi(cell.id);
-                    } 
-                }
+           console.log(cell.id); 
+           if(saraksts[j*n+i].length===1){ 
+           cell.innerHTML =saraksts[j*n+i]; 
+           cell.style="background-color:powderblue;";
+           //cell.style="color:black;";
+           //cell.style.display='none';
+           //cell.style="background-image:url('attels/key.jpg')";
+           cell.style.width='100px'; 
+           cell.style.height='100px'; }
+           else{ 
+           cell.setAttribute("style","background-image: url('"+saraksts[j*n+i]+"' );width:100px;height:100px;"); }
+           
+       }
 row.appendChild(cell); } 
 tbl.appendChild(row); } 
 document.body.appendChild(tbl); }	
 
 
-function mainaBildi(k){
+function mainaBildi(){
     
     
     
