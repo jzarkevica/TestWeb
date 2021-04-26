@@ -7,7 +7,7 @@
 //document.addEventListener('DOMContentLoaded', () => {
     
     
-    var attels1= ['attels/apple.jpg', 'attels/book.jpg', 'attels/carrot.jpg', 'attels/dog.jpg', 'attels/eye.jpg', 'attels/frog.jpg', 'attels/guitar.jpg', 'attels/house.jpg',
+    var krasinja= ['attels/apple.jpg', 'attels/book.jpg', 'attels/carrot.jpg', 'attels/dog.jpg', 'attels/eye.jpg', 'attels/frog.jpg', 'attels/guitar.jpg', 'attels/house.jpg',
         'attels/ice.jpg', 'attels/jar.jpg', 'attels/key.jpg', 'attels/lemon.jpg', 'attels/mushroom.jpg', 'attels/nose.jpg', 'attels/octopus.jpg', 'attels/pumpkin.jpg',
         'attels/queue.jpg', 'attels/rainbow.jpg', 'attels/sun.jpg', 'attels/tram.jpg', 'attels/umbrella.jpg', 'attels/vase.jpg', 'attels/watermelon.jpg', 'attels/x.jpg',
         'attels/yoyo.jpg', 'attels/zebra.jpg'];
@@ -15,7 +15,7 @@
         'letters/i.jpg', 'letters/j.jpg', 'letters/k.jpg', 'letters/l.jpg', 'letters/m.jpg', 'letters/n.jpg', 'letters/o.jpg', 'letters/p.jpg',
         'letters/q.jpg', 'letters/r.jpg', 'letters/s.jpg', 'letters/t.jpg', 'letters/u.jpg', 'letters/v.jpg', 'letters/w.jpg', 'letters/x1.jpg',
         'letters/y.jpg', 'letters/z.jpg' ];
-    var burts= ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    var vardinjs= ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
       
     var array=[];
     var masiv=[];
