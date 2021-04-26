@@ -118,6 +118,7 @@ if(document.getElementById("tabula")!==null){ document.body.removeChild(document
 let tbl = document.createElement("table"); 
 tbl.setAttribute("id","tabula"); 
 sajukums(n); 
+
 for (let j =0; j < n; j++) { 
 let row = document.createElement("tr"); 
 for (let i = 0; i < n; i++) { 
@@ -137,6 +138,7 @@ else{
 cell.setAttribute("style","background-image: url('attels/background.jpg' );width:100px;height:100px;"); }
 cell.onclick = function(){
            console.log(cell.id); 
+           //mainaBildi(cell.id);
            if(saraksts[j*n+i].length===1){ 
            cell.innerHTML =saraksts[j*n+i]; 
            cell.style="background-color:powderblue;";
@@ -147,16 +149,16 @@ cell.onclick = function(){
            cell.style.height='100px'; }
            else{ 
            cell.setAttribute("style","background-image: url('"+saraksts[j*n+i]+"' );width:100px;height:100px;"); }
-           
+
        }
 row.appendChild(cell); } 
 tbl.appendChild(row); } 
 document.body.appendChild(tbl); }	
 
 
-function mainaBildi(){
-    
-    
+function mainaBildi(b){
+              
+
     
     
     
