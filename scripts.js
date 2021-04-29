@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-function draw(){ 
- if(document.getElementById("poga").hasChildNodes()){
-                    document.getElementById("poga").removeChild(document.getElementById("poga").childNodes[0]);
-                }   
-    
+//function draw(){ 
+// if(document.getElementById("poga").hasChildNodes()){
+//                    document.getElementById("poga").removeChild(document.getElementById("poga").childNodes[0]);
+//                }   
+//    
 const cards = document.querySelectorAll('.memory-card');
 
 let hasFlippedCard = false;
@@ -67,4 +67,4 @@ function resetBoard() {
   });
 })();
 
-cards.forEach(card => card.addEventListener('click', flipCard));}
+cards.forEach(card => card.addEventListener('click', flipCard));

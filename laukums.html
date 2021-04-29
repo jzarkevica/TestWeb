@@ -70,17 +70,17 @@ function myFunction() {
 <script>
 
   
-    var attels=['attels1/apple.jpg', 'attels1/book1.jpg', 'attels1/carrot.jpg', 'attels1/dog.jpg','attels1/eye.jpg','attels1/frog.jpg','attels1/guitar.jpg','attels1/house.jpg',
-      'attels1/ice.jpg','attels1/jar.jpg','attels1/key.jpg','attels1/lemon.jpg','attels1/mushroom.jpg','attels1/nose.jpg','attels1/octopus.jpg','attels1/pumpkin.jpg','attels1/queue.jpg',
+  var attels=['attels1/Apple.jpg', 'attels1/Book1.jpg', 'attels1/Carrot.jpg', 'attels1/Dog.jpg','attels1/Eye.jpg','attels1/Frog.jpg','attels1/Guitar.jpg','attels1/House.jpg',
+      'attels1/Ice.jpg','attels1/jar.jpg','attels1/key.jpg','attels1/lemon.jpg','attels1/mushroom.jpg','attels1/nose.jpg','attels1/octopus.jpg','attels1/pumpkin.jpg','attels1/queue.jpg',
       'attels1/rainbow1.jpg','attels1/sun.jpg','attels1/tram.jpg','attels1/umbrella.jpg','attels1/vase.jpg','attels1/watermelon.jpg','attels1/x.jpg','attels1/yoyo.jpg','attels1/zebra.jpg'];
   var burts=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
   
   var klik=false;
   var saraksts=[];
   var masivs=[];
-  var tt;
-  var m=0;
+  var jaunais;
   var k;
+  var n;
   
   function sajukums(n){
       // vispirms sajauc dotos masīvus 
@@ -110,9 +110,9 @@ saraksts[i]=tmp; }
         }
 
 function zimet() { 
-    masivs=[];
+    
 if(document.getElementById("poga").hasChildNodes()){ document.getElementById("poga").removeChild(document.getElementById("poga").childNodes[0]); } 
-var n = document.getElementById("myNumber").value; 
+n = document.getElementById("myNumber").value; 
 document.getElementById("demo").innerHTML = n; 
 if(document.getElementById("tabula")!==null){ document.body.removeChild(document.getElementById("tabula")); } 
 let tbl = document.createElement("table"); 
@@ -138,35 +138,163 @@ else{
 cell.setAttribute("style","background-image: url('attels/background.jpg' );width:100px;height:100px;"); }
 cell.onclick = function(){
            console.log(cell.id); 
-           //mainaBildi(cell.id);
-           if(saraksts[j*n+i].length===1){ 
-           cell.innerHTML =saraksts[j*n+i]; 
-           cell.style="background-color:powderblue;";
-           //cell.style="color:black;";
-           //cell.style.display='none';
-           //cell.style="background-image:url('attels/key.jpg')";
-           cell.style.width='100px'; 
-           cell.style.height='100px'; }
-           else{ 
-           cell.setAttribute("style","background-image: url('"+saraksts[j*n+i]+"' );width:100px;height:100px;"); }
+           maina(cell.id);
+        //   if(saraksts[j*n+i].length===1){ 
+        //   cell.innerHTML =saraksts[j*n+i]; 
+        //   cell.style="background-color:powderblue;";
+           
+        //   cell.style.width='100px'; 
+        //   cell.style.height='100px'; }
+        //   else{ 
+        //   cell.setAttribute("style","background-image: url('"+saraksts[j*n+i]+"' );width:100px;height:100px;"); }
 
        }
 row.appendChild(cell); } 
 tbl.appendChild(row); } 
 document.body.appendChild(tbl); }	
 
+function maina(b){
+    if(!klik){
+        jaunais = b;
+        mainaBildi(b);
+        klik = true;
+    }else{
+        if(b.length==jaunais.length){
+            setTimeout(function(){
+                if(b.length===1){ 
+                    console.log("PPPP");
+//cell.innerHTML =saraksts[j*n+i]; 
+//document.getElementById(b).style.display='none';
+//document.getElementById(jaunais).style.display='none';
+document.getElementById(b).innerHTML = "";
+document.getElementById(jaunais).innerHTML = "."; 
+document.getElementById(b).style="background-image:url('attels/background.jpg')";
+document.getElementById(jaunais).style="background-image:url('attels/background.jpg')";
+document.getElementById(b).style.width='100px'; 
+document.getElementById(jaunais).style.width='100px'; 
+document.getElementById(b).style.height='100px'; 
+document.getElementById(jaunais).style.height='100px';}
+else{ 
+document.getElementById(b).setAttribute("style","background-image: url('attels/background.jpg' );width:100px;height:100px;"); 
+document.getElementById(jaunais).setAttribute("style","background-image: url('attels/background.jpg' );width:100px;height:100px;"); 
+}},2000);        
+                
+           // mainaBildi(b);
+            klik = false;
+        }else{
+            klik = false;
+            //jāpieraksta kas ir garākis teksts, charAt, jāsalīdzina
+            if(jaunais.length>b.length){
+                if(jaunais.charAt(8)==b.charAt(0)){
+                     console.log("MMMMM");
+            let kartite1 = saraksts[jaunais];
+            let kartite2 = saraksts[b];
+            if(attels.indexOf(kartite1)===burts.indexOf(kartite2)&&burts.indexOf(kartite1)===attels.indexOf(kartite2)){
+                masivs.push(jaunais);
+                masivs.push(b);
+                //mainaBildi(b);
+                if(b.length===1){ 
+                     console.log("NNN");
+//cell.innerHTML =saraksts[j*n+i]; 
+//document.getElementById(b).style.display='none';
+//document.getElementById(jaunais).style.display='none';
+           document.getElementById(b).innerHTML = b;
+           document.getElementById(jaunais).innerHTML = jaunais;
+           document.getElementById(b).style ="background-color:powderblue;";
+           document.getElementById(jaunais).style ="background-color:powderblue;";
+           document.getElementById(b).style.width='100px'; 
+           document.getElementById(jaunais).style.width='100px'; 
+           document.getElementById(b).style.height='100px';
+           document.getElementById(jaunais).style.height='100px';}
+else{ 
+document.getElementById(b).setAttribute("style","background-image: url('"+b+"' );width:100px;height:100px;");
+document.getElementById(jaunais).setAttribute("style","background-image: url('"+jaunais+"' );width:100px;height:100px;");
 
+//document.getElementById(jaunais).setAttribute("style","background-image: url('attels/background.jpg' );width:100px;height:100px;"); 
+}} 
+            }else{
+                setTimeout(function(){
+            if(b.length===1){ 
+                 console.log("XXX");
+document.getElementById(b).innerHTML = "";
+document.getElementById(jaunais).innerHTML = " "; 
+document.getElementById(b).style="background-image:url('attels/background.jpg')";
+document.getElementById(jaunais).style="background-image:url('attels/background.jpg')";
+document.getElementById(b).style.width='100px'; 
+document.getElementById(jaunais).style.width='100px'; 
+document.getElementById(b).style.height='100px'; 
+document.getElementById(jaunais).style.height='100px';}
+else{ 
+document.getElementById(b).setAttribute("style","background-image: url('attels/background.jpg' );width:100px;height:100px;"); 
+document.getElementById(jaunais).setAttribute("style","background-image: url('attels/background.jpg' );width:100px;height:100px;"); 
+}},2000);  
+    }
+            }else {
+             if(b.charAt(8)==jaunais.charAt(0)){
+                  console.log("BB");
+            let kartite1 = saraksts[jaunais];
+            let kartite2 = saraksts[b];
+            if(attels.indexOf(kartite1)===burts.indexOf(kartite2)&&burts.indexOf(kartite1)===attels.indexOf(kartite2)){
+                masivs.push(jaunais);
+                masivs.push(b);
+                //mainaBildi(b);
+                if(b.length===1){ 
+//cell.innerHTML =saraksts[j*n+i]; 
+//document.getElementById(b).style.display='none';
+//document.getElementById(jaunais).style.display='none';
+           document.getElementById(b).innerHTML = b;
+           document.getElementById(jaunais).innerHTML = jaunais;
+           document.getElementById(b).style ="background-color:powderblue;";
+           document.getElementById(jaunais).style ="background-color:powderblue;";
+           document.getElementById(b).style.width='100px'; 
+           document.getElementById(jaunais).style.width='100px'; 
+           document.getElementById(b).style.height='100px';
+           document.getElementById(jaunais).style.height='100px';}
+else{ 
+document.getElementById(b).setAttribute("style","background-image: url('"+b+"' );width:100px;height:100px;");
+document.getElementById(jaunais).setAttribute("style","background-image: url('"+jaunais+"' );width:100px;height:100px;");
+
+//document.getElementById(jaunais).setAttribute("style","background-image: url('attels/background.jpg' );width:100px;height:100px;"); 
+}} 
+    }
+            //mainaBildi(b);
+            
+                jaunais = -1;
+            }
+    }
+    }
 function mainaBildi(b){
-              
-
     
-    
-    
-    
-    
+//   if (klik){
+//        document.getElementById(b).style.background = "";
+//     
+//        document.getElementById(b).innerHTML = ""; 
+//        document.getElementById(b).style.width='100px'; 
+//        document.getElementById(b).style.height='100px';
+//        let bilde = document.createElement("img");
+//        bilde.setAttribute("src", "attels/background.jpg");
+//        bilde.setAttribute("class", "bilde");
+//      document.getElementById(b).appendChild(bilde);
+//        
+//    }
+//    else {
+        //document.getElementById(b).innerHTML = "";
+        //for (let j =0; j < n; j++) { 
+        //for (let i = 0; i < n; i++) { 
+        if(b.length==1){
+            
+           document.getElementById(b).innerHTML = b;
+           document.getElementById(b).style ="background-color:powderblue;";
+           document.getElementById(b).style.width='100px'; 
+           document.getElementById(b).style.height='100px';
+           console.log(b);
+            
+        }else document.getElementById(b).setAttribute("style","background-image: url('"+b+"' );width:100px;height:100px;");
+        
+        
     
     }
-            
+    }
           
 </script> 
 
