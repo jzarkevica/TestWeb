@@ -4,300 +4,118 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
-    <head> 
-        <style>
-         body  { background-color: palegoldenrod;
-         color: #fff;
-         text-align: center;
-         }
-         p{
-             text-align:center;
-             
-         }
-         form{
-             text-align:center;
-         }
-         table{
-             margin-left: auto;
-             margin-right: auto;
-             
-         }
-         .cell{
-       margin: 10px;
-        height: 60px;
-        width: 60px;
-        
-        }
-        .mattels{
-         position: relative;
-        }
-         
-        </style> 
-        <title>laukums</title>
+<!--<html>
+    <head>
+        <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      
     </head>
     <body>
-   <!--     <p>ievadi skaitli n</p>
-        <form id="frm1" action="/action_page.php">
-  skaitlis: <input type="number" name="skaitlis"><br>
-  
-  <input type="button" onclick="myFunction()" value="skaitīt">
-</form>
-
-<script>
-function myFunction() {
-  document.getElementById("frm1").submit();
-function myFunction() {
-  var x = document.getElementById("skaitlis").value;
-  document.getElementById("demo").innerHTML = x;
-}
-}
-
-</script>   -->
-  
-<p><a href="index.html">atgriezties</a></p> 
-   <p>  ievadi skaitli n: <input type="number" id="myNumber" value=" "> </p>
-   <p><button onclick="zimet()">zīmēt</button></p>
-   <p id="demo"></p>
-   <div class="grupa" id="poga"></div> 
-   
-   
-
-
-<script>
-
-  
-  var attels=['attels1/Apple.jpg', 'attels1/Book1.jpg', 'attels1/Carrot.jpg', 'attels1/Dog.jpg','attels1/Eye.jpg','attels1/Frog.jpg','attels1/Guitar.jpg','attels1/House.jpg',
-      'attels1/Ice.jpg','attels1/jar.jpg','attels1/key.jpg','attels1/lemon.jpg','attels1/mushroom.jpg','attels1/nose.jpg','attels1/octopus.jpg','attels1/pumpkin.jpg','attels1/queue.jpg',
-      'attels1/rainbow1.jpg','attels1/sun.jpg','attels1/tram.jpg','attels1/umbrella.jpg','attels1/vase.jpg','attels1/watermelon.jpg','attels1/x.jpg','attels1/yoyo.jpg','attels1/zebra.jpg'];
-  var burts=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-  
-  var klik=false;
-  var saraksts=[];
-  var masivs=[];
-  var jaunais;
-  var k;
-  var n;
-  
-  function sajukums(n){
-      // vispirms sajauc dotos masīvus 
-for(let i=0;i<attels.length;i++){
-var rand=Math.floor(Math.random()*attels.length); 
-var tmp=attels[rand]; 
-attels[rand]=attels[i]; 
-attels[i]=tmp; 
-tmp=burts[rand]; 
-burts[rand]=burts[i]; 
-burts[i]=tmp; } 
-// paņem nepieciešamo skaitu elementu 
-for(let i=0;i<n*n/2;i++){ 
-saraksts.push(attels[i]); 
-//saraksts.push("http://r1g.edu.lv/v/index/img/logo_sm3.png");
-//saraksts.push("https://upload.wikimedia.org/wikipedia/commons/1/10/Red_Color.jpg");
-saraksts.push(burts[i]); } 
-// sajauc sarakstu - tagad ir garantēts vienāds skaits burtu un bilžu 
-for(let i=0;i<saraksts.length;i++){ 
-var rand=Math.floor(Math.random()*saraksts.length); 
-var tmp=saraksts[rand]; 
-saraksts[rand]=saraksts[i]; 
-saraksts[i]=tmp; } 
-//document.write(saraksts); 
-//console.log(saraksts);
-
-        }
-
-function zimet() { 
-    
-if(document.getElementById("poga").hasChildNodes()){ document.getElementById("poga").removeChild(document.getElementById("poga").childNodes[0]); } 
-n = document.getElementById("myNumber").value; 
-document.getElementById("demo").innerHTML = n; 
-if(document.getElementById("tabula")!==null){ document.body.removeChild(document.getElementById("tabula")); } 
-let tbl = document.createElement("table"); 
-tbl.setAttribute("id","tabula"); 
-sajukums(n); 
-
-for (let j =0; j < n; j++) { 
-let row = document.createElement("tr"); 
-for (let i = 0; i < n; i++) { 
-let cell = document.createElement("td"); 
-cell.style.background = "";
-let bilde = document.createElement("img");
-  bilde.setAttribute("src", "attels/background.jpg");
-  bilde.setAttribute("class", "bilde");
-  cell.setAttribute("id", saraksts[j*n+i]);      
-if(saraksts[j*n+i].length===1){ 
-//cell.innerHTML =saraksts[j*n+i]; 
-cell.style.display='none';
-cell.style="background-image:url('attels/background.jpg')";
-cell.style.width='100px'; 
-cell.style.height='100px'; }
-else{ 
-cell.setAttribute("style","background-image: url('attels/background.jpg' );width:100px;height:100px;"); }
-cell.onclick = function(){
-           console.log(cell.id); 
-           maina(cell.id);
-        //   if(saraksts[j*n+i].length===1){ 
-        //   cell.innerHTML =saraksts[j*n+i]; 
-        //   cell.style="background-color:powderblue;";
-           
-        //   cell.style.width='100px'; 
-        //   cell.style.height='100px'; }
-        //   else{ 
-        //   cell.setAttribute("style","background-image: url('"+saraksts[j*n+i]+"' );width:100px;height:100px;"); }
-
-       }
-row.appendChild(cell); } 
-tbl.appendChild(row); } 
-document.body.appendChild(tbl); }	
-
-function maina(b){
-    if(!klik){
-        jaunais = b;
-        mainaBildi(b);
-        klik = true;
-    }else{
-        if(b.length==jaunais.length){
-            setTimeout(function(){
-                if(b.length===1){ 
-                    console.log("PPPP");
-//cell.innerHTML =saraksts[j*n+i]; 
-//document.getElementById(b).style.display='none';
-//document.getElementById(jaunais).style.display='none';
-document.getElementById(b).innerHTML = "";
-document.getElementById(jaunais).innerHTML = "."; 
-document.getElementById(b).style="background-image:url('attels/background.jpg')";
-document.getElementById(jaunais).style="background-image:url('attels/background.jpg')";
-document.getElementById(b).style.width='100px'; 
-document.getElementById(jaunais).style.width='100px'; 
-document.getElementById(b).style.height='100px'; 
-document.getElementById(jaunais).style.height='100px';}
-else{ 
-document.getElementById(b).setAttribute("style","background-image: url('attels/background.jpg' );width:100px;height:100px;"); 
-document.getElementById(jaunais).setAttribute("style","background-image: url('attels/background.jpg' );width:100px;height:100px;"); 
-}},2000);        
-                
-           // mainaBildi(b);
-            klik = false;
-        }else{
-            klik = false;
-            //jāpieraksta kas ir garākis teksts, charAt, jāsalīdzina
-            if(jaunais.length>b.length){
-                if(jaunais.charAt(8)==b.charAt(0)){
-                     console.log("MMMMM");
-            let kartite1 = saraksts[jaunais];
-            let kartite2 = saraksts[b];
-            if(attels.indexOf(kartite1)===burts.indexOf(kartite2)&&burts.indexOf(kartite1)===attels.indexOf(kartite2)){
-                masivs.push(jaunais);
-                masivs.push(b);
-                //mainaBildi(b);
-                if(b.length===1){ 
-                     console.log("NNN");
-//cell.innerHTML =saraksts[j*n+i]; 
-//document.getElementById(b).style.display='none';
-//document.getElementById(jaunais).style.display='none';
-           document.getElementById(b).innerHTML = b;
-           document.getElementById(jaunais).innerHTML = jaunais;
-           document.getElementById(b).style ="background-color:powderblue;";
-           document.getElementById(jaunais).style ="background-color:powderblue;";
-           document.getElementById(b).style.width='100px'; 
-           document.getElementById(jaunais).style.width='100px'; 
-           document.getElementById(b).style.height='100px';
-           document.getElementById(jaunais).style.height='100px';}
-else{ 
-document.getElementById(b).setAttribute("style","background-image: url('"+b+"' );width:100px;height:100px;");
-document.getElementById(jaunais).setAttribute("style","background-image: url('"+jaunais+"' );width:100px;height:100px;");
-
-//document.getElementById(jaunais).setAttribute("style","background-image: url('attels/background.jpg' );width:100px;height:100px;"); 
-}} 
-            }else{
-                setTimeout(function(){
-            if(b.length===1){ 
-                 console.log("XXX");
-document.getElementById(b).innerHTML = "";
-document.getElementById(jaunais).innerHTML = " "; 
-document.getElementById(b).style="background-image:url('attels/background.jpg')";
-document.getElementById(jaunais).style="background-image:url('attels/background.jpg')";
-document.getElementById(b).style.width='100px'; 
-document.getElementById(jaunais).style.width='100px'; 
-document.getElementById(b).style.height='100px'; 
-document.getElementById(jaunais).style.height='100px';}
-else{ 
-document.getElementById(b).setAttribute("style","background-image: url('attels/background.jpg' );width:100px;height:100px;"); 
-document.getElementById(jaunais).setAttribute("style","background-image: url('attels/background.jpg' );width:100px;height:100px;"); 
-}},2000);  
-    }
-            }else {
-             if(b.charAt(8)==jaunais.charAt(0)){
-                  console.log("BB");
-            let kartite1 = saraksts[jaunais];
-            let kartite2 = saraksts[b];
-            if(attels.indexOf(kartite1)===burts.indexOf(kartite2)&&burts.indexOf(kartite1)===attels.indexOf(kartite2)){
-                masivs.push(jaunais);
-                masivs.push(b);
-                //mainaBildi(b);
-                if(b.length===1){ 
-//cell.innerHTML =saraksts[j*n+i]; 
-//document.getElementById(b).style.display='none';
-//document.getElementById(jaunais).style.display='none';
-           document.getElementById(b).innerHTML = b;
-           document.getElementById(jaunais).innerHTML = jaunais;
-           document.getElementById(b).style ="background-color:powderblue;";
-           document.getElementById(jaunais).style ="background-color:powderblue;";
-           document.getElementById(b).style.width='100px'; 
-           document.getElementById(jaunais).style.width='100px'; 
-           document.getElementById(b).style.height='100px';
-           document.getElementById(jaunais).style.height='100px';}
-else{ 
-document.getElementById(b).setAttribute("style","background-image: url('"+b+"' );width:100px;height:100px;");
-document.getElementById(jaunais).setAttribute("style","background-image: url('"+jaunais+"' );width:100px;height:100px;");
-
-//document.getElementById(jaunais).setAttribute("style","background-image: url('attels/background.jpg' );width:100px;height:100px;"); 
-}} 
-    }
-            //mainaBildi(b);
-            
-                jaunais = -1;
-            }
-    }
-    }
-function mainaBildi(b){
-    
-//   if (klik){
-//        document.getElementById(b).style.background = "";
-//     
-//        document.getElementById(b).innerHTML = ""; 
-//        document.getElementById(b).style.width='100px'; 
-//        document.getElementById(b).style.height='100px';
-//        let bilde = document.createElement("img");
-//        bilde.setAttribute("src", "attels/background.jpg");
-//        bilde.setAttribute("class", "bilde");
-//      document.getElementById(b).appendChild(bilde);
-//        
-//    }
-//    else {
-        //document.getElementById(b).innerHTML = "";
-        //for (let j =0; j < n; j++) { 
-        //for (let i = 0; i < n; i++) { 
-        if(b.length==1){
-            
-           document.getElementById(b).innerHTML = b;
-           document.getElementById(b).style ="background-color:powderblue;";
-           document.getElementById(b).style.width='100px'; 
-           document.getElementById(b).style.height='100px';
-           console.log(b);
-            
-        }else document.getElementById(b).setAttribute("style","background-image: url('"+b+"' );width:100px;height:100px;");
-        
-        
-    
-    }
-    }
-          
-</script> 
-
-
+        <div>TODO write content</div>
     </body>
+</html> -->
+
+<!--<html lang="en"> -->
+<head>
+  <meta charset="UTF-8">
+
+  <title>Memory Game</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+  <!--  <p><a href="index.html">atgriezties</a></p> -->
+ <!--  <p>  ievadi skaitli: <input type="number" id="k" value="4"> </p>
+   <p><button onclick="zimet()">zīmēt</button></p>
+   <p id="demo"></p> -->
+ 
+ <div class="butt">
+        <form>
+            <label for="k">  SIZE:</label>
+            <input type="number" id="skaitlis" name="k" min="4" max="4" step="2" value="4"><br>
+        </form>
+     <!-- <p><button onclick="draw()">play</button></p> -->
+ </div>
+ 
+        <div class="btn-group" id="poga"></div>
+        
+
+    
+  <section class="memory-game">
+    <div class="memory-card" data-framework="apple">
+      <img class="front-face" src="attels/apple.jpg" alt="apple" />
+      <img class="back-face" src="attels/background.jpg" alt="background" />
+    </div>
+    <div class="memory-card" data-framework="apple">
+      <img class="front-face" src="letters/a.jpg" alt="a" />
+      <img class="back-face" src="attels/background.jpg" alt="background" />
+    </div>
+
+    <div class="memory-card" data-framework="book">
+      <img class="front-face" src="attels/book.jpg" alt="book" />
+      <img class="back-face" src="attels/background.jpg" alt="background" />
+    </div>
+    <div class="memory-card" data-framework="book">
+      <img class="front-face" src="letters/b.jpg" alt="b" />
+      <img class="back-face" src="attels/background.jpg" alt="background" />
+    </div>
+
+    <div class="memory-card" data-framework="carrot">
+      <img class="front-face" src="attels/carrot.jpg" alt="carrot" />
+      <img class="back-face" src="attels/background.jpg" alt="background" />
+    </div>
+    <div class="memory-card" data-framework="carrot">
+      <img class="front-face" src="letters/c.jpg" alt="c" />
+      <img class="back-face" src="attels/background.jpg" alt="background" />
+    </div>
+
+    <div class="memory-card" data-framework="dog">
+      <img class="front-face" src="attels/dog.jpg" alt="dog" />
+      <img class="back-face" src="attels/background.jpg" alt="background" />
+    </div>
+    <div class="memory-card" data-framework="dog">
+      <img class="front-face" src="letters/d.jpg" alt="d" />
+      <img class="back-face" src="attels/background.jpg" alt="background" />
+    </div>
+
+    <div class="memory-card" data-framework="eye">
+      <img class="front-face" src="attels/eye.jpg" alt="eye" />
+      <img class="back-face" src="attels/background.jpg" alt="background" />
+    </div>
+    <div class="memory-card" data-framework="eye">
+      <img class="front-face" src="letters/e.jpg" alt="e" />
+      <img class="back-face" src="attels/background.jpg" alt="background" />
+    </div>
+
+    <div class="memory-card" data-framework="frog">
+      <img class="front-face" src="attels/frog.jpg" alt="frog" />
+      <img class="back-face" src="attels/background.jpg" alt="background" />
+    </div>
+    <div class="memory-card" data-framework="frog">
+      <img class="front-face" src="letters/f.jpg" alt="f" />
+      <img class="back-face" src="attels/background.jpg" alt="background" />
+    </div>
+      
+    <div class="memory-card" data-framework="guitar">
+      <img class="front-face" src="attels/guitar.jpg" alt="guitar" />
+      <img class="back-face" src="attels/background.jpg" alt="background" />
+    </div>
+    <div class="memory-card" data-framework="guitar">
+      <img class="front-face" src="letters/g.jpg" alt="g" />
+      <img class="back-face" src="attels/background.jpg" alt="background" />
+    </div>  
+        
+    <div class="memory-card" data-framework="house">
+      <img class="front-face" src="attels/house.jpg" alt="house" />
+      <img class="back-face" src="attels/background.jpg" alt="background" />
+    </div>
+    <div class="memory-card" data-framework="house">
+      <img class="front-face" src="letters/h.jpg" alt="h" />
+      <img class="back-face" src="attels/background.jpg" alt="background" />
+    </div>
+  </section>
+
+  <script src="scripts.js"></script>
+</body>
 </html>
