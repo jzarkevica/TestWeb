@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//function draw(){ 
-// if(document.getElementById("poga").hasChildNodes()){
-//                    document.getElementById("poga").removeChild(document.getElementById("poga").childNodes[0]);
-//                }   
-//    
+
 const cards = document.querySelectorAll('.memory-card');
 
+
+var di=0;
+var start= new Date().getTime();
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
@@ -29,19 +28,40 @@ function flipCard() {
 
   secondCard = this;
   checkForMatch();
+  console.log("flip");
+  
+  
 }
 
 function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
   isMatch ? disableCards() : unflipCards();
+  
+  console.log("check");
+  
 }
 
 function disableCards() {
+    
+    
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
-
+  
   resetBoard();
+  di=di+1;
+  if(di==8){
+    var end = new Date().getTime();
+    var sekundes = (end - start)/1000;
+        if(sekundes>60){
+            let min =sekundes/60-(sekundes/60)%1;
+            sekundes=Math.round((sekundes-60*min)*1000)/1000;
+            setTimeout(function(){alert("RESULTS: " + min + " min " + sekundes+" s");}, 500);
+        }else {
+            setTimeout(function(){alert("RESULTS: " + sekundes + " s");}, 500);
+        }          
+       //  console.log("WIN");  
+      }else console.log("disable");
 }
 
 function unflipCards() {
@@ -53,11 +73,16 @@ function unflipCards() {
 
     resetBoard();
   }, 1500);
+ // console.log("unflip");
+ 
+
 }
 
 function resetBoard() {
   [hasFlippedCard, lockBoard] = [false, false];
   [firstCard, secondCard] = [null, null];
+  console.log("resetboard");
+
 }
 
 (function shuffle() {
