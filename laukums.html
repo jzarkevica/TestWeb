@@ -22,8 +22,28 @@ and open the template in the editor.
   <title>Memory Game</title>
 
   <link rel="stylesheet" href="styles.css">
+  
+  <script>
+  var vards="Julija";
+  var punkti=13; 
+  function fetchResults(){
+    var dict={vards:vards,punkti:punkti};
+    console.log(JSON.stringify(dict));
+    fetch('http://jzarkevica.pythonanywhere.com/send', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body:JSON.stringify(dict)
+    })
+            .then(res => res.json())
+            .then(data => document.getElementById("top").innerHTML = 
+            "Labākais rezultāts "+data[0].punkti+" punkti "+data[0].vards)
+}
+  </script>
+  
+  
+  
 </head>
-<body>
+<body onload="fetchResults()">
     
   <!--  <p><a href="index.html">atgriezties</a></p> -->
  <!--  <p>  ievadi skaitli: <input type="number" id="k" value="4"> </p>
@@ -36,6 +56,8 @@ and open the template in the editor.
             <input type="number" id="skaitlis" name="k" min="4" max="4" step="2" value="4"><br>
         </form>
      <!-- <p><button onclick="draw()">play</button></p> -->
+     <button type="button" onclick="fetchResults()" >spied</button>
+     <p id="top"></p>
  </div>
  
         <div class="btn-group" id="poga"></div>
